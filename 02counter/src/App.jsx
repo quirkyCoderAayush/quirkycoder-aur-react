@@ -8,32 +8,36 @@ function App() {
   // let counter = 0;
 
   const addValue = () => {
-    //counter += 1;
-    if(counter<20) {
-      setCounter(counter+1);
-    }
-    else {
-      alert("Counter value can't be greater than 20");
-      return counter
-    }
+    setCounter((prevCounter) => {
+      if(prevCounter < 20) {
+        return counter+1;
+      }
+      else {
+        alert("Counter value can't be greater than 20");
+        return counter;
+      }
+    })
   }
 
   const removeValue = () => {
-    //counter -= 1;
-    if(counter<=0) {
-      alert("Counter value can't be less than 0");
-      return counter
-    }
-    setCounter(counter-1);
+    setCounter((prevCounter) => {
+      if(prevCounter >= 0) {
+        return counter-1;
+      }
+      else {
+        alert("Counter value can't be less than 0");
+        return counter;
+      }
+    })
   }
 
   return (
     <>
       <h1>quirkyCoder and React!!</h1>
       <p>Counter value: {counter}</p>
-      <button onClick={addValue}>Add value</button>
+      <button onClick={addValue} disabled={counter >= 20}>Add value</button>
       <br /><br />
-      <button onClick={removeValue}>Remove value</button>
+      <button onClick={removeValue} disabled={counter <= 2}>Remove value</button>
     </>
   )
 
