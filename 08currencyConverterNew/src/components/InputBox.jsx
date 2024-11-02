@@ -6,7 +6,7 @@ function InputBox({
     onAmountChange,
     onCurrencyChange,
     currencyOptions = [],
-    selectCurrency = "",
+    selectCurrency = "USD",
     amountDisable = false,
     currencyDisable = false,
     className = "",
