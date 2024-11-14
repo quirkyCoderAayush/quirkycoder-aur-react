@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "10minicontext": "file:",
+=======
+>>>>>>> 715687d86e983eb0f1eeea4e47549d08f27ec5f4
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
