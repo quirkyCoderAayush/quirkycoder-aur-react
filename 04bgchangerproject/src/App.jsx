@@ -7,7 +7,8 @@ function App() {
   return (
     <>
 
-      <div className='flex items-center justify-center w-full h-screen duration-200' style={{ backgroundColor: color }}>
+      <div className='flex items-center justify-center w-full h-screen duration-200' 
+      style={{ backgroundColor: color }}>
         <h1 className='text-center text-4xl font-bold underline'>
           Background Color Changer
         </h1>        

@@ -1,14 +1,15 @@
-function customRender(element, container) {
-    const domElement = document.createElement(element.type)
-    domElement.innerHTML = element.children
 
-    // domElement.setAttribute('href', element.props.href)
-    // domElement.setAttribute('target', element.props.target)
+function customRender(reactElement, container) {
+    // const domElement = document.createElement(reactElement.type)
+    // domElement.innerHTML = reactElement.children
+    // domElement.setAttribute('href', reactElement.props.href)
+    // domElement.setAttribute('target', reactElement.props.target)
 
-    for (const prop in element.props) {
-        if(prop === 'children') continue
-
-        domElement.setAttribute(prop, element.props[prop])
+    const domElement = document.createElement(reactElement.type)
+    domElement.innerHTML = reactElement.children
+    for (const prop in reactElement.props) {
+        if (prop === 'children') continue;
+        domElement.setAttribute(prop, reactElement.props[prop])
     }
     container.appendChild(domElement)
 }
@@ -16,10 +17,11 @@ function customRender(element, container) {
 const reactElement = {
     type: 'a',
     props: {
-        href: 'https://google.com',
-        target: '_blank'
+        href: 'https://www.google.com',
+        target: '_blank',
+        children: 'Click me to visit Google'
     },
-    children: 'Click me to visit google!!'
+    children: 'Click me to visit Google'
 }
 
 const mainContainer = document.getElementById('root')

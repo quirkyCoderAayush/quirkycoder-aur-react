@@ -27,7 +27,7 @@ function App() {
   const copyPasswordToClipboard = useCallback(() => {
     inputRef.current?.select();
       navigator.clipboard.writeText(password);
-  })
+  },[password])
 
   return (
     <div className='w-full max-w-lg mx-auto p-6 bg-gradient-to-l from-gray-800 to-gray-900 text-white rounded-lg shadow-lg my-10'>
