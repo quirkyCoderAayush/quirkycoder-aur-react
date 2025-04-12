@@ -1,0 +1,312 @@
+/* Base App Styling */
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s ease;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Content Container */
+.content-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 85%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, #a0a0a0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Loader */
+.loader {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin: 20px auto;
+}
+
+/* Default Background */
+.default-bg {
+  background: linear-gradient(to bottom, #4b6cb7, #182848);
+}
+
+/* ===== ANIMATED WEATHER BACKGROUNDS ===== */
+
+/* Cloudy Background */
+.cloudy-bg {
+  background: linear-gradient(to bottom, #757f9a, #d7dde8);
+}
+
+.cloudy-bg::before,
+.cloudy-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.cloudy-bg::before {
+  background: url('https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg');
+  background-size: auto 100%;
+  animation: cloudMove 60s linear infinite;
+}
+
+.cloudy-bg::after {
+  background: url('https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg');
+  background-size: auto 60%;
+  animation: cloudMove 40s linear infinite reverse;
+  top: 20%;
+  opacity: 0.5;
+}
+
+/* Rainy Background */
+.rainy-bg {
+  background: linear-gradient(to bottom, #616161, #212121);
+}
+
+.rainy-bg::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2));
+  animation: rain 0.8s linear infinite;
+  pointer-events: none;
+}
+
+.rainy-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg');
+  background-size: auto 100%;
+  animation: cloudMove 80s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Clear/Sunny Background */
+.clear-bg {
+  background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+}
+
+.clear-bg::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, transparent 60%);
+  animation: sunRays 20s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.clear-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 10%),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 10%);
+  animation: twinkle 5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Snowy Background */
+.snowy-bg {
+  background: linear-gradient(to bottom, #7d9cc0, #d6e6f2);
+}
+
+.snowy-bg::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(4px 4px at 100px 50px, #fff 100%, transparent),
+    radial-gradient(6px 6px at 200px 150px, #fff 100%, transparent),
+    radial-gradient(3px 3px at 300px 250px, #fff 100%, transparent),
+    radial-gradient(4px 4px at 400px 350px, #fff 100%, transparent),
+    radial-gradient(6px 6px at 500px 100px, #fff 100%, transparent),
+    radial-gradient(3px 3px at 50px 200px, #fff 100%, transparent),
+    radial-gradient(4px 4px at 150px 300px, #fff 100%, transparent),
+    radial-gradient(6px 6px at 250px 400px, #fff 100%, transparent),
+    radial-gradient(3px 3px at 350px 500px, #fff 100%, transparent);
+  background-size: 650px 650px;
+  animation: snowfall 10s linear infinite;
+  pointer-events: none;
+}
+
+/* Stormy Background */
+.stormy-bg {
+  background: linear-gradient(to bottom, #373b44, #1f2229);
+}
+
+.stormy-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg');
+  background-size: auto 100%;
+  animation: cloudMove 30s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.stormy-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0);
+  animation: lightning 8s infinite;
+  pointer-events: none;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes cloudMove {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
+}
+
+@keyframes rain {
+  0% { 
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    transform: translateY(-100px);
+  }
+  100% { 
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    transform: translateY(0);
+  }
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(650px) translateX(-100px); }
+}
+
+@keyframes sunRays {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes lightning {
+  0%, 91%, 93%, 95%, 97%, 99% { 
+    background: rgba(255, 255, 255, 0); 
+  }
+  92%, 94%, 96%, 98%, 100% { 
+    background: rgba(255, 255, 255, 0.2); 
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  .content-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 1.2rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+}
